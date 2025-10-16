@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Housing Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🏠 California Housing Price Predictor</h2>
+        <form action="/predict" method="post">
+            <input type="text" name="MedInc" placeholder="Median Income" required>
+            <input type="text" name="HouseAge" placeholder="House Age" required>
+            <input type="text" name="AveRooms" placeholder="Average Rooms" required>
+            <input type="text" name="AveBedrms" placeholder="Average Bedrooms" required>
+            <input type="text" name="Population" placeholder="Population" required>
+            <input type="text" name="AveOccup" placeholder="Average Occupancy" required>
+            <input type="text" name="Latitude" placeholder="Latitude" required>
+            <input type="text" name="Longitude" placeholder="Longitude" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Prediction Result -->
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
